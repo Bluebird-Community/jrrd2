@@ -1,3 +1,5 @@
+[![jrrd2-build](https://github.com/Bluebird-Community/jrrd2/actions/workflows/jrrd2-build.yaml/badge.svg)](https://github.com/Bluebird-Community/jrrd2/actions/workflows/jrrd2-build.yaml)
+
 # JRrd2
 
 Jrrd2 provides a native interface for Java to [rrdtool](http://oss.oetiker.ch/rrdtool).
