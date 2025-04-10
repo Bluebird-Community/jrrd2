@@ -43,12 +43,12 @@ deps-packages:
 
 .PHONY: jni-header
 jni-header: deps-build
-	cd java && mvn --settings "../$(MAVEN_SETTINGS_XML)" clean compile
+	cd java && mvn clean compile
 	cd build && cmake "$(CMAKE_ARGS)" ../jni/ && make
 
 .PHONY: shared-lib
 shared-lib: jni-header
-	cd java && mvn --settings "../$(MAVEN_SETTINGS_XML)" package && \
+	cd java && mvn package && \
 	cp target/jrrd2-api-*.jar ../dist/
 
 .PHONY: deb-pkg
@@ -62,9 +62,9 @@ deb-pkg: deps-packages shared-lib
 	fpm -s dir \
       --name jrrd2 \
       --description "A native interface to rrdtool for Java" \
-      --vendor "Bluebird" \
+      --vendor "BluebirdOps Community" \
       --license "GPLv2" \
-      --maintainer "maintainer@bluebirdlabs.tech" \
+      --maintainer "maintainer@bluebirdops.org" \
       --url "https://github.com/Bluebird-Community/jrrd2" \
       --version $(VERSION) \
       -t deb \
@@ -83,9 +83,9 @@ rpm-pkg: deps-packages shared-lib
 	fpm -s dir \
       --name jrrd2 \
       --description "A native interface to rrdtool for Java" \
-      --vendor "Bluebird" \
+      --vendor "BluebirdOps Community" \
       --license "GPLv2" \
-      --maintainer "maintainer@bluebirdlabs.tech" \
+      --maintainer "maintainer@bluebirdops.org" \
       --url "https://github.com/Bluebird-Community/jrrd2" \
       --version $(VERSION) \
       -t rpm \
@@ -95,7 +95,7 @@ rpm-pkg: deps-packages shared-lib
 
 .PHONY: clean
 clean:
-	cd java && mvn --settings "../$(MAVEN_SETTINGS_XML)" clean
+	cd java && mvn clean
 	rm -rf build
 	rm -rf dist
 	rm -f jni/include/config.h
