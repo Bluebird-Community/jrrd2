@@ -1,7 +1,6 @@
 .DEFAULT_GOAL := shared-lib
 
 SHELL               := /bin/bash -o nounset -o pipefail -o errexit
-MAVEN_SETTINGS_XML  ?= ./.cicd-assets/settings.xml
 BUILD_DIR           := ./build
 DEB_PKG_BUILD_DIR   := $(BUILD_DIR)/deb
 RPM_PKG_BUILD_DIR   := $(BUILD_DIR)/rpm
