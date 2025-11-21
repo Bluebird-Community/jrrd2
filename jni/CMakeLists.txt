@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 3.101.0)
+cmake_minimum_required (VERSION 3.10.0)
 project (jrrd2)
 
 # JNI header name

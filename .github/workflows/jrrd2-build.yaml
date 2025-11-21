@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: quay.io/bluebird/java-builder:ubuntu.0.1.5.jdk-17.b21
+      image: quay.io/bluebird/java-builder:ubuntu.0.1.5.jdk-17.b22
     steps:
       - uses: actions/checkout@v4
       - name: Set environment variable
