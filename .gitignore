@@ -1,3 +1,6 @@
+# MacOS
+.DS_Store
+
 # Debian
 debian/*.log
 debian/files
