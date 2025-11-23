@@ -7,6 +7,10 @@ set (JNI_HEADER "jrrd2_java_interface.h")
 # Output folder
 set (CMAKE_LIBRARY_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/../dist")
 
+# Ignore AWT and JVM library
+set(JAVA_AWT_LIBRARY NotNeeded)
+set(JAVA_JVM_LIBRARY NotNeeded)
+
 # Java JNI headers
 find_package(JNI REQUIRED)
 message (STATUS "JNI_INCLUDE_DIRS=${JNI_INCLUDE_DIRS}")
