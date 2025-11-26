@@ -18,6 +18,7 @@ jobs:
           echo "OCI_TAG=$(cat release.tag)" >> ${GITHUB_ENV}
           echo "SHORT_GIT_SHA=$(git rev-parse --short HEAD)" >> ${GITHUB_ENV}
           echo "BUILD_DATE"=$(date -u +"%Y-%m-%dT%H:%M:%SZ") >> ${GITHUB_ENV}
+          echo "OWNER_LC=${GITHUB_REPOSITORY_OWNER,,}" >> $GITHUB_ENV
       - name: Create Dockerfile
         working-directory: oci-build-env
         run: make Dockerfile
@@ -66,4 +67,4 @@ jobs:
           context: ./oci-build-env
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ghcr.io/bluebird-community/${{ env.OCI_TAG }}.${{ env.SHORT_GIT_SHA }},ghcr.io/bluebird-community/jrrd2-builder:latest
+          tags: ghcr.io/${{ env.OWNER_LC }}/${{ env.OCI_TAG }}.${{ env.SHORT_GIT_SHA }},ghcr.io/${{ env.OWNER_LC }}/jrrd2-builder:latest

@@ -2,6 +2,7 @@
 name: jrrd2-build
 run-name: Build JRRD2
 on:
+  workflow_dispatch:
   push:
 
 ## Build and create the project on every push to the project

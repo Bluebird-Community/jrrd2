@@ -15,7 +15,7 @@ MAJOR_VERSION       := $(shell echo $(RELEASE_VERSION) | cut -d. -f1)
 MINOR_VERSION       := $(shell echo $(RELEASE_VERSION) | cut -d. -f2)
 PATCH_VERSION       := $(shell echo $(RELEASE_VERSION) | cut -d. -f3)
 SNAPSHOT_VERSION    := $(MAJOR_VERSION).$(MINOR_VERSION).$(shell expr $(PATCH_VERSION) + 1)-SNAPSHOT
-RELEASE_LOG         := $(ARTIFACTS_DIR)/release.log
+RELEASE_LOG         := $(BUILD_DIR)/release.log
 OK                  := "[ 👍 ]"
 
 .PHONY: help

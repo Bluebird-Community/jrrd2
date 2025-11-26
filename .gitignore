@@ -10,17 +10,15 @@ debian/substvars
 # CMake
 CMakeCache.txt
 CMakeFiles
-build/Makefile
+Makefile
 cmake_install.cmake
 install_manifest.txt
 .cache/
 
 # Build/target folders
-.build/
+build/
 dist/
 tmp/
-*.oci
-Dockerfile
 
 # Generated headers
 config.h
@@ -33,7 +31,3 @@ jni/include/jrrd2_java_interface.h
 .classpath
 .project
 java/bin/
-
-# MacOSX jenv tool
-.java-version
-
