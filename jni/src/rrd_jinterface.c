@@ -526,7 +526,7 @@ JNIEXPORT jobject JNICALL Java_org_opennms_netmgt_rrd_jrrd2_impl_Interface_rrd_1
 	char **n_legend_v;
 	int n_xsize;
 
-	int result = rrd_xport(n_argc, (char**)n_argv, &n_xsize, &n_start, &n_end, &n_step, &n_col_cnt, &n_legend_v, &n_data);
+    int result = rrd_xport(n_argc, (const char**)n_argv, &n_xsize, &n_start, &n_end, &n_step, &n_col_cnt, &n_legend_v, &n_data);
 
 	// Release allocated resources
 	release_strings(env, &classes, argv, n_argv, n_argc);

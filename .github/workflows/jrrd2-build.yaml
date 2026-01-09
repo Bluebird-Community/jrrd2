@@ -10,7 +10,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/bluebird-community/jrrd2-builder:0.0.1.9173b3c
+      image: quay.io/bluebird/java-builder:rocky.0.3.0.jdk-17.b29
     steps:
       - uses: actions/checkout@v4
       - name: Set environment variable
@@ -30,7 +30,7 @@ jobs:
       - build
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/bluebird-community/jrrd2-builder:0.0.1.9173b3c
+      image: quay.io/bluebird/java-builder:rocky.0.3.0.jdk-17.b29
     steps:
       - uses: actions/checkout@v4
       - name: Set environment variable
@@ -58,7 +58,7 @@ jobs:
       - build
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/bluebird-community/jrrd2-builder:0.0.1.9173b3c
+      image: quay.io/bluebird/java-builder:rocky.0.3.0.jdk-17.b29
     steps:
       - uses: actions/checkout@v4
       - name: Set environment variable

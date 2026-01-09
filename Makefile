@@ -79,7 +79,7 @@ deb-pkg: deps-packages shared-lib
       --version $(VERSION) \
       -t deb \
       -C $(DEB_PKG_BUILD_DIR) \
-      -d "rrdtool > 1.5.0" \
+      -d "rrdtool >= 1.8.0" \
       -p ./dist --iteration $(BUILD_NUMBER)
 
 .PHONY: rpm-pkg
@@ -100,7 +100,7 @@ rpm-pkg: deps-packages shared-lib
       --version $(VERSION) \
       -t rpm \
       -C $(RPM_PKG_BUILD_DIR) \
-      -d "rrdtool > 1.5.0" \
+      -d "rrdtool >= 1.8.0" \
       -p ./dist --iteration $(BUILD_NUMBER)
 
 .PHONY: clean
