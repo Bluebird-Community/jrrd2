@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := shared-lib
 
 SHELL               := /bin/bash -o nounset -o pipefail -o errexit
-BUILD_DIR           := ./build
+BUILD_DIR           := build
 DEB_PKG_BUILD_DIR   := $(BUILD_DIR)/deb
 RPM_PKG_BUILD_DIR   := $(BUILD_DIR)/rpm
 CMAKE_ARGS          ?=
@@ -138,7 +138,7 @@ release: deps-build
 	@if git rev-parse v$(RELEASE_VERSION) >$(RELEASE_LOG) 2>&1; then echo "Tag v$(RELEASE_VERSION) already exists"; exit 1; fi
 	@echo "$(OK)"
 	@echo -n "💅 Set Maven release version:   "
-	@cd java; mvn versions:set -DnewVersion=$(RELEASE_VERSION) >>$(RELEASE_LOG) 2>&1
+	@cd java; mvn versions:set -DnewVersion=$(RELEASE_VERSION) >>../$(RELEASE_LOG) 2>&1
 	@echo "$(OK)"
 	@echo -n "👮‍♀️ Validate build:              "
 	@$(MAKE) shared-lib >>$(RELEASE_LOG) 2>&1
@@ -150,7 +150,7 @@ release: deps-build
 	@git tag -a "v$(RELEASE_VERSION)" -m "Release JRRD2 version $(RELEASE_VERSION)" >>$(RELEASE_LOG) 2>&1
 	@echo "$(OK)"
 	@echo -n "⬆️ Set Maven snapshot version:  "
-	@cd java; mvn versions:set -DnewVersion=$(SNAPSHOT_VERSION) >>$(RELEASE_LOG) 2>&1
+	@cd java; mvn versions:set -DnewVersion=$(SNAPSHOT_VERSION) >>../$(RELEASE_LOG) 2>&1
 	@echo "$(OK)"
 	@echo -n "🎁 Git commit snapshot release: "
 	@git commit --signoff -am "release: JRRD2 version $(SNAPSHOT_VERSION)" >>$(RELEASE_LOG) 2>&1
