@@ -12,7 +12,7 @@ jobs:
     container:
       image: quay.io/bluebird/java-builder:rocky.0.3.0.jdk-17.b29
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Set environment variable
         run: echo "BUILD_NUMBER=${{ github.run_number }}" >> $GITHUB_ENV
       - name: Add workspace to git safe.directory
@@ -32,7 +32,7 @@ jobs:
     container:
       image: quay.io/bluebird/java-builder:rocky.0.3.0.jdk-17.b29
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Set environment variable
         run: echo "BUILD_NUMBER=${{ github.run_number }}" >> $GITHUB_ENV
       - name: Add workspace to git safe.directory
@@ -40,7 +40,7 @@ jobs:
       - name: Build DEB packages
         run: make BUILD_NUMBER=${{ env.BUILD_NUMBER }} deb-pkg
       - name: Persist jrrd2 Debian package artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: jrrd2-deb-pkg
           path: dist/*.deb
@@ -60,7 +60,7 @@ jobs:
     container:
       image: quay.io/bluebird/java-builder:rocky.0.3.0.jdk-17.b29
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Set environment variable
         run: echo "BUILD_NUMBER=${{ github.run_number }}" >> $GITHUB_ENV
       - name: Add workspace to git safe.directory
@@ -68,7 +68,7 @@ jobs:
       - name: Build RPM packages
         run: make BUILD_NUMBER=${{ env.BUILD_NUMBER }} rpm-pkg
       - name: Persist jrrd2 RPM package artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: jrrd2-rpm-pkg
           path: dist/*.rpm
